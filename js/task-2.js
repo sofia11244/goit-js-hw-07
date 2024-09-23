@@ -26,21 +26,19 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
+const fragment = document.createDocumentFragment(); // DocumentFragment oluştur
 
 images.forEach(image => {
+  const li = document.createElement('li'); 
+  const img = document.createElement('img'); 
 
-  const li = document.createElement('li');
-  const img = document.createElement('img');
+  img.src = image.url; // Resim kaynağı
+  img.alt = image.alt; // Alternatif metin
+  img.setAttribute("width", "360px"); 
+  img.setAttribute("height", "300px"); 
 
-  img.src = image.url;
-  img.alt = image.alt;
-  
-
-li.id="images-list";
-img.setAttribute("width", "360px");
-img.setAttribute("height", "300px");
-
-  li.appendChild(img);
-  gallery.appendChild(li);
+  li.appendChild(img); // <img> elementini <li>'ye ekleme
+  fragment.appendChild(li); // <li> elementini fragment'e ekleme
 });
 
+gallery.appendChild(fragment); // Fragment'i tek seferde DOM'a ekleme

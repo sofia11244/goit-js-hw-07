@@ -63,8 +63,9 @@ a {
 }
 
 
-#images-list {
-    width: auto;
+.images-list {
+    width: 360px;
+    height: 300px;
     background: #fafafa;
 }
 
